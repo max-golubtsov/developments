@@ -1,6 +1,8 @@
-<?
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /* *** Каталог *** */
+
 use \Bitrix\Main\Page\Asset;									// Класс подключения для подключения в head
+
 $arSectCanonical = CIBlockSection::GetList(						// Класс для работы с разделами
 	array("SORT" => "ASC"),
 	array(
@@ -9,6 +11,7 @@ $arSectCanonical = CIBlockSection::GetList(						// Класс для работ
 		false,
 		$arSelect = array("UF_CANONICAL_SECTION")				// Название UF свойства
 );
+
 if ($canonical = $arSectCanonical -> GetNext()):
 	// Проверка на пустоту
 	if (!empty($canonical["UF_CANONICAL_SECTION"])):
